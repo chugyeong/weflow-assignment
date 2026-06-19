@@ -1,39 +1,13 @@
-import { Phone, MessageCircle, FileText, SearchCheck } from "lucide-react";
-import { FixedBottomBar, BottomBarItem } from "../../styles/layout/footer";
-
-const menus = [
-  {
-    label: "24시간 상담",
-    icon: Phone,
-    link: "tel:010-2971-7280",
-    color: "text-emerald-300",
-  },
-  {
-    label: "카카오 문의",
-    icon: MessageCircle,
-    link: "https://pf.kakao.com/_xntCbX",
-    color: "text-yellow-300",
-  },
-  {
-    label: "블로그",
-    icon: FileText,
-    link: "https://m.blog.naver.com/weflowlab",
-    color: "text-sky-300",
-  },
-  {
-    label: "무료진단",
-    icon: SearchCheck,
-    link: "/diagnosis",
-    color: "text-we-blue-100",
-  },
-];
+import { FIXED_FOOTER_MENUS } from "../../constants/layout";
+import { BottomBarItem, FixedBottomBar } from "../../styles/layout/footer";
 
 const FixedFooter = () => {
   return (
     <FixedBottomBar>
       <div>
-        {menus.map((menu) => {
+        {FIXED_FOOTER_MENUS.map((menu) => {
           const Icon = menu.icon;
+
           return (
             <BottomBarItem
               key={menu.label}

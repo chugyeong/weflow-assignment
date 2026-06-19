@@ -1,22 +1,15 @@
 import { useEffect, useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { NavLink } from "react-router-dom";
+import { NAV_ITEMS } from "../../constants/layout";
 import {
   Container,
-  Inner,
-  Nav,
-  Logo,
   DiagnosisButton,
+  Inner,
+  Logo,
   MobileMenuButton,
+  Nav,
 } from "../../styles/layout/header";
-
-const navItems = [
-  { to: "/", label: "홈" },
-  { to: "/service", label: "서비스" },
-  { to: "/pricing", label: "가격안내" },
-  { to: "/cases", label: "성공사례" },
-  { to: "/reservation", label: "상담예약" },
-];
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -45,12 +38,12 @@ const Header = () => {
   return (
     <Container ref={headerRef}>
       <Inner>
-        <Logo to="/">
+        <Logo to="/" onClick={closeMenu}>
           <img src="/logo.png" alt="WEFLOW" />
           <span>WEFLOW</span>
         </Logo>
         <Nav $isOpen={isMenuOpen}>
-          {navItems.map((item) => (
+          {NAV_ITEMS.map((item) => (
             <NavLink
               key={item.to}
               to={item.to}
@@ -67,7 +60,7 @@ const Header = () => {
           aria-label={isMenuOpen ? "메뉴 닫기" : "메뉴 열기"}
           aria-expanded={isMenuOpen}
           onClick={() => setIsMenuOpen((prev) => !prev)}>
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          {isMenuOpen ? <X size={21} /> : <Menu size={21} />}
         </MobileMenuButton>
       </Inner>
     </Container>
