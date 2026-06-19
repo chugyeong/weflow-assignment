@@ -50,4 +50,23 @@ export const useRequestStore = create((set) => ({
 
       return { requests: newRequests };
     }),
+
+  deleteRequests: (ids = []) =>
+    set((state) => {
+      const deleteIdSet = new Set(ids);
+      const newRequests = state.requests.filter((item) => !deleteIdSet.has(item.id));
+
+      saveRequests(newRequests);
+
+      return { requests: newRequests };
+    }),
+
+  deleteAllRequests: (type) =>
+    set((state) => {
+      const newRequests = type ? state.requests.filter((item) => item.type !== type) : [];
+
+      saveRequests(newRequests);
+
+      return { requests: newRequests };
+    }),
 }));

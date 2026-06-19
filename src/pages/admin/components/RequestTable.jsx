@@ -19,10 +19,21 @@ const getStatusBadgeClassName = (status) => {
   return `inline-flex min-w-[58px] justify-center rounded-full px-2.5 py-1.5 text-xs font-extrabold text-we-white ${colorClass}`;
 };
 
-const RequestTable = ({ data, type, onStatusChange, onDelete }) => {
+const RequestTable = ({
+  data,
+  type,
+  selectedIds = [],
+  onSelect,
+  onSelectAll,
+  onStatusChange,
+  onDelete,
+}) => {
   const [openId, setOpenId] = useState("");
   const isAll = type === "all";
   const showSchedule = type === "reservation" || isAll;
+  const rowIds = data.map((item) => item.id);
+  const selectedIdSet = new Set(selectedIds);
+  const isAllSelected = rowIds.length > 0 && rowIds.every((id) => selectedIdSet.has(id));
 
   if (data.length === 0) {
     return <div className="px-5 py-11 text-center text-we-gray-500">표시할 내역이 없습니다.</div>;
@@ -32,13 +43,21 @@ const RequestTable = ({ data, type, onStatusChange, onDelete }) => {
     setOpenId((prev) => (prev === id ? "" : id));
   };
 
-  const detailColSpan = 5 + Number(isAll) + Number(showSchedule);
+  const detailColSpan = 6 + Number(isAll) + Number(showSchedule);
 
   return (
     <div className="overflow-x-auto rounded-[12px] border border-white/10 [scrollbar-color:#334155_transparent] [scrollbar-width:thin] [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-we-gray-700">
-      <table className="w-full min-w-[860px] border-collapse bg-we-black/40 [&_td]:whitespace-nowrap [&_td]:border-b [&_td]:border-white/6 [&_td]:px-3 [&_td]:py-3.5 [&_td]:text-left [&_td]:align-middle [&_td]:text-we-gray-100 [&_th]:whitespace-nowrap [&_th]:border-b [&_th]:border-white/10 [&_th]:bg-white/[0.035] [&_th]:px-3 [&_th]:py-3.5 [&_th]:text-left [&_th]:align-middle [&_th]:text-[clamp(12px,1.2vw,14px)] [&_th]:font-extrabold [&_th]:text-we-gray-400">
+      <table className="w-full min-w-[920px] border-collapse bg-we-black/40 [&_td]:whitespace-nowrap [&_td]:border-b [&_td]:border-white/6 [&_td]:px-3 [&_td]:py-3.5 [&_td]:text-left [&_td]:align-middle [&_td]:text-we-gray-100 max-[640px]:[&_td]:px-2 max-[640px]:[&_td]:py-2 max-[640px]:[&_td]:text-[13px] [&_th]:whitespace-nowrap [&_th]:border-b [&_th]:border-white/10 [&_th]:bg-white/[0.035] [&_th]:px-3 [&_th]:py-3.5 [&_th]:text-left [&_th]:align-middle [&_th]:text-[clamp(12px,1.2vw,14px)] [&_th]:font-extrabold [&_th]:text-we-gray-400 max-[640px]:[&_th]:px-2 max-[640px]:[&_th]:py-2 max-[640px]:[&_th]:text-[11px]">
         <thead>
           <tr>
+            <th className="!w-12">
+              <input
+                type="checkbox"
+                className="h-[18px] w-[18px] cursor-pointer accent-we-blue-300 max-[640px]:h-3.5 max-[640px]:w-3.5"
+                checked={isAllSelected}
+                onChange={(event) => onSelectAll?.(rowIds, event.target.checked)}
+              />
+            </th>
             {isAll && <th>구분</th>}
             <th>상태</th>
             <th>이름</th>
@@ -59,6 +78,14 @@ const RequestTable = ({ data, type, onStatusChange, onDelete }) => {
             return (
               <Fragment key={item.id}>
                 <tr className="transition hover:bg-white/[0.025]">
+                  <td>
+                    <input
+                      type="checkbox"
+                      className="h-[18px] w-[18px] cursor-pointer accent-we-blue-300 max-[640px]:h-3.5 max-[640px]:w-3.5"
+                      checked={selectedIdSet.has(item.id)}
+                      onChange={(event) => onSelect?.(item.id, event.target.checked)}
+                    />
+                  </td>
                   {isAll && <td>{getRequestTypeLabel(item.type)}</td>}
                   <td>
                     <span className={getStatusBadgeClassName(status)}>{status}</span>
@@ -73,7 +100,7 @@ const RequestTable = ({ data, type, onStatusChange, onDelete }) => {
                     <div className="flex items-center gap-2">
                       <div className="relative">
                         <select
-                          className="h-9 min-w-[92px] appearance-none rounded-lg border border-white/10 bg-we-black/80 py-0 pl-2.5 pr-8 text-xs font-extrabold text-we-gray-100 outline-none transition hover:border-white/20 focus:border-we-blue-300 focus:shadow-[0_0_0_3px_rgba(59,130,246,0.16)] disabled:cursor-not-allowed disabled:opacity-50"
+                          className="h-9 min-w-[92px] appearance-none rounded-lg border border-white/10 bg-we-black/80 py-0 pl-2.5 pr-8 text-xs font-extrabold text-we-gray-100 outline-none transition hover:border-white/20 focus:border-we-blue-300 focus:shadow-[0_0_0_3px_rgba(59,130,246,0.16)] disabled:cursor-not-allowed disabled:opacity-50 max-[640px]:h-7 max-[640px]:min-w-[78px] max-[640px]:rounded-md max-[640px]:pl-2 max-[640px]:pr-7"
                           value={status}
                           disabled={isDone}
                           onChange={(event) => onStatusChange(item.id, event.target.value)}>
@@ -90,7 +117,7 @@ const RequestTable = ({ data, type, onStatusChange, onDelete }) => {
                       </div>
                       <button
                         type="button"
-                        className="flex h-9 w-9 items-center justify-center rounded-lg border border-red-500/40 bg-red-500/10 text-red-300 transition hover:-translate-y-0.5 hover:bg-red-500/20 disabled:cursor-not-allowed disabled:opacity-35 disabled:hover:translate-y-0"
+                        className="flex h-9 w-9 items-center justify-center rounded-lg border border-red-500/40 bg-red-500/10 text-red-300 transition hover:-translate-y-0.5 hover:bg-red-500/20 disabled:cursor-not-allowed disabled:opacity-35 disabled:hover:translate-y-0 max-[640px]:h-7 max-[640px]:w-7 max-[640px]:rounded-md"
                         disabled={isDone}
                         onClick={() => onDelete(item.id)}>
                         <Trash2 size={15} />
@@ -99,7 +126,7 @@ const RequestTable = ({ data, type, onStatusChange, onDelete }) => {
                   </td>
                   <td>
                     <button
-                      className="flex h-[34px] w-[34px] items-center justify-center rounded-lg border border-white/10 bg-white/[0.04] text-we-gray-100 transition hover:border-we-blue-300 hover:text-we-white"
+                      className="flex h-[34px] w-[34px] items-center justify-center rounded-lg border border-white/10 bg-white/[0.04] text-we-gray-100 transition hover:border-we-blue-300 hover:text-we-white max-[640px]:h-7 max-[640px]:w-7 max-[640px]:rounded-md"
                       type="button"
                       onClick={() => toggleDetail(item.id)}>
                       <ChevronDown
@@ -117,9 +144,14 @@ const RequestTable = ({ data, type, onStatusChange, onDelete }) => {
                         isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
                       }`}>
                       <div className="overflow-hidden">
-                        <div className={`m-3 grid grid-cols-3 gap-3 rounded-[10px] border border-white/10 p-4 max-[760px]:grid-cols-1 ${isDone ? "bg-emerald-500/[0.035]" : "bg-white/[0.045]"}`}>
+                        <div
+                          className={`m-3 grid grid-cols-3 gap-3 rounded-[10px] border border-white/10 p-4 max-[760px]:grid-cols-1 ${
+                            isDone ? "bg-emerald-500/[0.035]" : "bg-white/[0.045]"
+                          }`}>
                           <div className="min-w-0 whitespace-normal">
-                            <span className="mb-[5px] block text-xs text-we-gray-500">제작 종류</span>
+                            <span className="mb-[5px] block text-xs text-we-gray-500">
+                              제작 종류
+                            </span>
                             <p className="break-keep leading-[1.6] text-we-gray-100">
                               {item.projectType || "-"}
                             </p>

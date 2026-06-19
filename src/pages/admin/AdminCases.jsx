@@ -3,7 +3,7 @@ import { useMemo, useState } from "react";
 import { toast } from "sonner";
 import { TextAreaField, TextField } from "../../components/common/FormControls";
 import { useCaseStore } from "../../store/useCaseStore";
-import { CommonAgreement, CommonFormRow } from "../../styles/common/components";
+import { Agreement, Form } from "../../styles/common/components";
 
 const getCaseForm = (item) => ({
   title: item?.title || "",
@@ -65,7 +65,9 @@ const CaseEditor = ({ activeCase, updateCase, toggleCaseVisibility }) => {
       <div className="mb-5 flex items-center justify-between gap-3 border-b border-white/10 pb-5 max-[640px]:flex-col max-[640px]:items-start">
         <div>
           <h2 className="text-2xl font-black text-we-white">{activeCase.title}</h2>
-          <p className="mt-1 text-sm text-we-gray-500">이미지와 슬러그는 기존 사례 자산을 사용합니다.</p>
+          <p className="mt-1 text-sm text-we-gray-500">
+            이미지와 슬러그는 기존 사례 자산을 사용합니다.
+          </p>
         </div>
         <button
           type="button"
@@ -79,7 +81,7 @@ const CaseEditor = ({ activeCase, updateCase, toggleCaseVisibility }) => {
         </button>
       </div>
 
-      <CommonFormRow>
+      <Form>
         <TextField
           label="사례명"
           name="title"
@@ -94,7 +96,7 @@ const CaseEditor = ({ activeCase, updateCase, toggleCaseVisibility }) => {
           onChange={handleChange}
           placeholder="업종 또는 분류"
         />
-      </CommonFormRow>
+      </Form>
 
       <TextField
         label="대표 성과"
@@ -103,7 +105,7 @@ const CaseEditor = ({ activeCase, updateCase, toggleCaseVisibility }) => {
         onChange={handleChange}
         placeholder="예: 문의 흐름 개선"
       />
-      <CommonFormRow>
+      <Form>
         <TextField
           label="클라이언트 라벨"
           name="clientType"
@@ -118,7 +120,7 @@ const CaseEditor = ({ activeCase, updateCase, toggleCaseVisibility }) => {
           onChange={handleChange}
           placeholder="예: 5일 제작"
         />
-      </CommonFormRow>
+      </Form>
       <TextField
         label="유입 채널"
         name="channel"
@@ -147,7 +149,7 @@ const CaseEditor = ({ activeCase, updateCase, toggleCaseVisibility }) => {
         onChange={handleChange}
         placeholder={"한 줄에 하나씩 입력\n모바일 중심 구성\n상담 CTA 강화"}
       />
-      <CommonFormRow>
+      <Form>
         <TextAreaField
           label="작업 범위"
           name="projectScope"
@@ -162,7 +164,7 @@ const CaseEditor = ({ activeCase, updateCase, toggleCaseVisibility }) => {
           onChange={handleChange}
           placeholder={"한 줄에 하나씩 입력\n진단\n구조 설계\n배포"}
         />
-      </CommonFormRow>
+      </Form>
       <TextAreaField
         label="고객 코멘트"
         name="testimonial"
@@ -171,10 +173,10 @@ const CaseEditor = ({ activeCase, updateCase, toggleCaseVisibility }) => {
         placeholder="상세 페이지 하단에 표시될 코멘트를 입력하세요"
       />
 
-      <CommonAgreement>
+      <Agreement>
         <input type="checkbox" name="visible" checked={form.visible} onChange={handleChange} />
         <span>공개 페이지에 노출</span>
-      </CommonAgreement>
+      </Agreement>
 
       <button
         type="submit"
