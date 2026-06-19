@@ -50,8 +50,10 @@ const SuccessCase = () => {
                   alt={item.title}
                 />
                 <div className="p-4 max-[640px]:p-3">
-                  <span className="block font-extrabold text-we-white max-[640px]:text-[13px]">{item.title}</span>
-                  <button className="mt-2 flex items-center gap-[5px] text-[clamp(12px,1.2vw,14px)] text-we-blue-100 max-[640px]:mt-1.5 max-[640px]:text-xs max-[640px]:[&_svg]:h-3 max-[640px]:[&_svg]:w-3">
+                  <span className="block font-extrabold text-we-white max-[640px]:text-[13px]">
+                    {item.title}
+                  </span>
+                  <button className="mt-2 flex items-center gap-[5px] text-[clamp(12px,1.2vw,14px)] text-we-blue-100 max-[640px]:mt-1.5 max-[640px]:!text-xs max-[640px]:[&_svg]:h-3 max-[640px]:[&_svg]:w-3">
                     자세히보기
                     <ArrowRight size={14} />
                   </button>

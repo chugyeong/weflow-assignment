@@ -41,8 +41,8 @@ const Cases = () => {
                 <strong className="block break-keep text-[clamp(16px,1.8vw,18px)] text-we-white max-[640px]:text-[15px]">
                   {item.title}
                 </strong>
-                <button className="mt-2.5 flex items-center gap-[5px] text-[clamp(12px,1.2vw,14px)] text-we-blue-300 max-[640px]:mt-1.5 max-[640px]:text-xs max-[640px]:[&_svg]:h-3 max-[640px]:[&_svg]:w-3">
-                  자세히 보기
+                <button className="mt-2 flex items-center gap-[5px] text-[clamp(12px,1.2vw,14px)] text-we-blue-100 max-[640px]:mt-1.5 max-[640px]:!text-xs max-[640px]:[&_svg]:h-3 max-[640px]:[&_svg]:w-3">
+                  자세히보기
                   <ArrowRight size={15} />
                 </button>
               </div>

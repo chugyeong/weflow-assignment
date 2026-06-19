@@ -16,7 +16,7 @@ const navLinkClass =
   "group relative flex min-h-10 items-center gap-2.5 overflow-hidden rounded-[11px] border border-transparent px-3 text-sm font-extrabold text-we-gray-400 transition duration-300 before:absolute before:inset-y-2 before:left-0 before:w-1 before:rounded-r-full before:bg-we-blue-100 before:opacity-0 before:transition hover:border-white/10 hover:bg-white/[0.055] hover:text-we-white max-[900px]:min-h-9 max-[900px]:gap-2 max-[900px]:px-2.5 max-[900px]:text-[13px] [&.active]:border-white/10 [&.active]:bg-[linear-gradient(90deg,rgba(59,130,246,0.18),rgba(255,255,255,0.055))] [&.active]:text-we-white [&.active]:shadow-[0_12px_34px_rgba(0,0,0,0.18)] [&.active]:before:opacity-100 [&_svg]:h-6 [&_svg]:w-6 [&_svg]:shrink-0 [&_svg]:rounded-[8px] [&_svg]:bg-white/[0.045] [&_svg]:p-1 [&_svg]:text-we-blue-100 [&_svg]:transition max-[900px]:[&_svg]:h-5 max-[900px]:[&_svg]:w-5 group-hover:[&_svg]:bg-we-blue-300/15";
 
 const utilityButtonClass =
-  "flex min-h-10 items-center justify-center gap-2 rounded-[11px] border border-white/10 bg-white/[0.04] text-sm font-extrabold text-we-gray-200 transition hover:-translate-y-0.5 hover:border-we-blue-300/60 hover:bg-white/[0.07] hover:text-we-white max-[900px]:min-h-9 max-[900px]:text-[13px]";
+  "flex min-h-10 items-center justify-center gap-2 rounded-[11px] border border-white/10 bg-white/[0.04] text-sm font-extrabold text-we-gray-200 transition hover:-translate-y-0.5 hover:border-we-blue-300/60 hover:bg-white/[0.07] hover:text-we-white max-[900px]:min-h-9 max-[900px]:!text-[13px]";
 
 const adminNavItems = [
   { to: "/admin", label: "전체 현황", icon: BarChart3, end: true },
@@ -31,9 +31,16 @@ const AdminBrand = ({ onLogoClick, onAdminClick, compact = false }) => (
       type="button"
       className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[13px] border border-white/10 bg-white/[0.055] shadow-[0_12px_34px_rgba(0,0,0,0.22)] transition hover:-translate-y-0.5 max-[900px]:h-8 max-[900px]:w-8 max-[900px]:rounded-[10px]"
       onClick={onLogoClick}>
-      <img className="h-8 w-8 object-contain max-[900px]:h-6 max-[900px]:w-6" src="/logo.png" alt="WEFLOW" />
+      <img
+        className="h-8 w-8 object-contain max-[900px]:h-6 max-[900px]:w-6"
+        src="/logo.png"
+        alt="WEFLOW"
+      />
     </button>
-    <button type="button" className="text-left transition hover:-translate-y-0.5" onClick={onAdminClick}>
+    <button
+      type="button"
+      className="text-left transition hover:-translate-y-0.5"
+      onClick={onAdminClick}>
       <strong className="block text-base font-bold uppercase tracking-[0] text-we-white max-[900px]:text-[13px]">
         WEFLOW ADMIN
       </strong>
@@ -133,7 +140,11 @@ const AdminLayout = () => {
         </aside>
 
         <div className="hidden border-b border-white/10 bg-[#070b17]/92 px-4 shadow-[0_14px_40px_rgba(0,0,0,0.22)] backdrop-blur-xl max-[900px]:sticky max-[900px]:top-0 max-[900px]:z-[900] max-[900px]:flex max-[900px]:h-[60px] max-[900px]:items-center max-[900px]:justify-between">
-          <AdminBrand compact onLogoClick={handleGoHome} onAdminClick={isMenuOpen ? handleMobileAdminClick : handleGoAdmin} />
+          <AdminBrand
+            compact
+            onLogoClick={handleGoHome}
+            onAdminClick={isMenuOpen ? handleMobileAdminClick : handleGoAdmin}
+          />
           <button
             type="button"
             className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-we-gray-100 transition-colors hover:border-we-blue-300 hover:text-we-blue-100"
@@ -159,7 +170,11 @@ const AdminLayout = () => {
           }`}>
           <div className="border-b border-white/10 px-3.5 py-4">
             <div className="flex items-start justify-between gap-3">
-              <AdminBrand onLogoClick={handleGoHome} onAdminClick={handleMobileAdminClick} compact />
+              <AdminBrand
+                onLogoClick={handleGoHome}
+                onAdminClick={handleMobileAdminClick}
+                compact
+              />
               <button
                 type="button"
                 className="flex h-9 w-9 shrink-0 items-center justify-center rounded-[10px] text-we-gray-400 transition hover:bg-white/[0.045] hover:text-we-blue-100"

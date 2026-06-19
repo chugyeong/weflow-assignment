@@ -58,7 +58,7 @@ const ReservationSchedule = ({
 
       <Field>
         <FieldLabel>원하시는 시간대</FieldLabel>
-        <input
+        <FieldInput
           name="customTime"
           value={customTime}
           onChange={onChange}

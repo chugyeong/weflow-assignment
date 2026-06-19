@@ -59,7 +59,7 @@ const AdminLogin = () => {
         </label>
 
         <button
-          className="h-14 w-full rounded-[14px] border border-white/10 bg-white/[0.04] font-extrabold text-we-white transition-all duration-200 hover:border-we-blue-300/50 hover:bg-we-blue-300/10"
+          className="h-14 w-full rounded-[14px] border border-white/10 bg-white/[0.04] font-extrabold text-we-white transition-all duration-200 hover:border-we-blue-300/50 hover:bg-we-blue-300/10 max-[900px]:!text-[13px]"
           type="submit">
           로그인
         </button>
