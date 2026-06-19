@@ -1,4 +1,4 @@
-import { CommonFieldGroup, CommonFormRow } from "../../styles/common/components";
+import { Form } from "../../styles/common/components";
 import { NameField, PhoneField, SelectField, TextAreaField, TextField } from "./FormControls";
 
 const ProjectRequestFields = ({
@@ -18,7 +18,7 @@ const ProjectRequestFields = ({
 }) => {
   return (
     <>
-      <CommonFormRow>
+      <Form>
         <NameField
           label={nameLabel}
           value={form.name}
@@ -32,9 +32,9 @@ const ProjectRequestFields = ({
           onChange={onChange}
           placeholder={phonePlaceholder}
         />
-      </CommonFormRow>
+      </Form>
 
-      <CommonFieldGroup>
+      <Form>
         <SelectField
           label={projectTypeLabel}
           name="projectType"
@@ -52,7 +52,7 @@ const ProjectRequestFields = ({
           placeholder={businessPlaceholder}
           maxLength={40}
         />
-      </CommonFieldGroup>
+      </Form>
 
       <TextAreaField
         label={messageLabel}

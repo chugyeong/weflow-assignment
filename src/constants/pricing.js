@@ -1,3 +1,5 @@
+export const DOMAIN_NOTICES = ["도메인 연결 지원", "도메인 등록 대행 가능", "도메인 비용 별도"];
+
 export const PRODUCTION_PLANS = [
   {
     name: "랜딩페이지",
@@ -20,7 +22,6 @@ export const PRODUCTION_PLANS = [
   {
     name: "프리미엄",
     tag: "MASTER PREMIUM",
-    featured: true,
     price: {
       original: 2980000,
       sale: 1490000,
@@ -55,7 +56,6 @@ export const CARE_PLANS = [
   {
     name: "WEFLOW CARE",
     description: "올인원 관리 플랜",
-    featured: true,
     price: {
       original: 678000,
       sale: 339000,

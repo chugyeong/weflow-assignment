@@ -1,14 +1,14 @@
 import ProjectRequestFields from "../../../components/common/ProjectRequestFields";
 import { PROJECT_TYPES } from "../../../constants/projectTypes";
 import {
-  CommonAgreement,
-  CommonFormPanel,
-  CommonSubmitButton,
+  Agreement,
+  FormPanel,
+  SubmitButton,
 } from "../../../styles/common/components";
 
 const DiagnosisForm = ({ form, isSubmitDisabled, onChange, onSubmit }) => {
   return (
-    <CommonFormPanel onSubmit={onSubmit}>
+    <FormPanel onSubmit={onSubmit}>
       <div className="mb-6">
         <strong className="mb-2 block text-[clamp(22px,2.4vw,28px)] text-we-white">
           무료진단 및 견적받기
@@ -25,15 +25,15 @@ const DiagnosisForm = ({ form, isSubmitDisabled, onChange, onSubmit }) => {
         messagePlaceholder="현재 고민, 참고 사이트, 개선하고 싶은 내용을 자유롭게 적어주세요."
       />
 
-      <CommonAgreement>
+      <Agreement>
         <input type="checkbox" name="privacy" checked={form.privacy} onChange={onChange} />
         <span>개인정보 수집 및 상담에 동의합니다.</span>
-      </CommonAgreement>
+      </Agreement>
 
-      <CommonSubmitButton type="submit" disabled={isSubmitDisabled}>
+      <SubmitButton type="submit" disabled={isSubmitDisabled}>
         무료진단 및 견적 받기
-      </CommonSubmitButton>
-    </CommonFormPanel>
+      </SubmitButton>
+    </FormPanel>
   );
 };
 
