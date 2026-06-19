@@ -1,10 +1,19 @@
 import { Fragment } from "react";
-import { ChevronDown } from "lucide-react";
+import { ArrowDown, ArrowLeft, ArrowRight, ChevronDown } from "lucide-react";
 import { CARE_PLAN_BENEFITS, PROCESS_STEPS } from "../../../constants/home";
 import { Section, Inner } from "../../../styles/layout/layout";
 import SectionTitle from "../../../components/common/SectionTitle";
 
 const CarePlan = () => {
+  const benefitOrderClass = [
+    "min-[901px]:order-1",
+    "min-[901px]:order-2",
+    "min-[901px]:order-3",
+    "min-[901px]:order-6",
+    "min-[901px]:order-5",
+    "min-[901px]:order-4",
+  ];
+
   return (
     <Section className="point1">
       <Inner>
@@ -19,7 +28,22 @@ const CarePlan = () => {
             return (
               <div
                 key={item.title}
-                className="group rounded-[18px] border border-white/10 bg-white/[0.045] p-5 text-[clamp(14px,1.4vw,15px)] text-we-gray-100 shadow-we-gray backdrop-blur-xl transition duration-500 hover:-translate-y-1.5 hover:border-we-blue-100/60 max-[640px]:rounded-[14px] max-[640px]:p-3.5">
+                className={`group relative rounded-[18px] border border-white/10 bg-white/[0.045] p-5 text-[clamp(14px,1.4vw,15px)] text-we-gray-100 shadow-we-gray backdrop-blur-xl transition duration-500 hover:-translate-y-1.5 hover:border-we-blue-100/60 max-[640px]:rounded-[14px] max-[640px]:p-3.5 ${benefitOrderClass[idx]}`}>
+                {[0, 1].includes(idx) && (
+                  <span className="pointer-events-none absolute -right-[22px] top-1/2 z-10 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-we-blue-300/30 bg-we-black/90 text-we-blue-100 shadow-[0_10px_28px_rgba(37,99,235,0.28)] max-[900px]:hidden">
+                    <ArrowRight size={16} />
+                  </span>
+                )}
+                {idx === 2 && (
+                  <span className="pointer-events-none absolute -bottom-[22px] left-1/2 z-10 flex h-8 w-8 -translate-x-1/2 items-center justify-center rounded-full border border-we-blue-300/30 bg-we-black/90 text-we-blue-100 shadow-[0_10px_28px_rgba(37,99,235,0.28)] max-[900px]:hidden">
+                    <ArrowDown size={16} />
+                  </span>
+                )}
+                {[3, 4].includes(idx) && (
+                  <span className="pointer-events-none absolute -left-[22px] top-1/2 z-10 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-we-blue-300/30 bg-we-black/90 text-we-blue-100 shadow-[0_10px_28px_rgba(37,99,235,0.28)] max-[900px]:hidden">
+                    <ArrowLeft size={16} />
+                  </span>
+                )}
                 <div className="mb-5 flex h-[50px] w-[50px] items-center justify-center rounded-[14px] bg-[linear-gradient(135deg,#58e6ff,#3b82f6)] font-black text-white shadow-[0_14px_30px_rgba(37,99,235,0.28)] max-[640px]:mb-3.5 max-[640px]:h-9 max-[640px]:w-9 max-[640px]:rounded-[10px]">
                   <Icon className="h-6 w-6 max-[640px]:h-[18px] max-[640px]:w-[18px]" />
                 </div>

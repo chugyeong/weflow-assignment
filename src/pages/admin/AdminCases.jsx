@@ -227,13 +227,6 @@ const AdminCases = () => {
             공개 성공사례의 상세 문구, 성과 포인트, 노출 여부를 관리합니다.
           </p>
         </div>
-        <button
-          type="button"
-          className="inline-flex min-h-11 items-center gap-2 rounded-[10px] border border-white/10 bg-white/[0.04] px-4 font-extrabold text-we-gray-200 transition hover:border-we-blue-300 hover:text-we-white"
-          onClick={handleReset}>
-          <RotateCcw size={16} />
-          기본값 복원
-        </button>
       </div>
 
       <div className="grid grid-cols-[340px_minmax(0,1fr)] gap-5 max-[980px]:grid-cols-1">

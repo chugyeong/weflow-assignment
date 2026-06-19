@@ -37,17 +37,17 @@ export const CARE_PLAN_BENEFITS = [
     icon: ShieldCheck,
   },
   {
-    title: "제작+운영+광고+관리",
+    title: "제작+운영+광고+관리 원터치",
     description: "필요한 작업을 한 번에",
     icon: Workflow,
   },
   {
     title: "빠른 제작",
-    description: "3~7일 빠른 배포",
+    description: "3~7일 로켓배송",
     icon: Rocket,
   },
   {
-    title: "합리적인 비용",
+    title: "합리적인 가성비",
     description: "필요한 기능 중심 구성",
     icon: BadgeDollarSign,
   },
@@ -72,7 +72,14 @@ export const PRODUCTION_PROCESS = [
   },
   {
     title: "6단계 제작 프로세스",
-    items: ["상담 · 진단", "기획 · 설계", "디자인", "개발 · 제작", "SEO 최적화", "광고운영 · 사후관리"],
+    items: [
+      "상담 · 진단",
+      "기획 · 설계",
+      "디자인",
+      "개발 · 제작",
+      "SEO 최적화",
+      "광고운영 · 사후관리",
+    ],
   },
 ];
 

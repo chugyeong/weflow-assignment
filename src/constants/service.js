@@ -27,18 +27,18 @@ export const PRODUCTION_PROCESS = [
     icon: Palette,
   },
   {
-    title: "개발 · 테스트",
+    title: "개발 · 제작",
     description: "기능 구현, 최적화, 검수 및 수정을 진행합니다.",
     icon: Code2,
   },
   {
-    title: "SEO 상단등록",
+    title: "seo 상단등록",
     description: "네이버, 구글, 사이트맵 등록을 준비합니다.",
     icon: Search,
   },
   {
     title: "광고운영 · 사후관리",
-    description: "인스타, 블로그, 키워드 광고 운영을 관리합니다.",
+    description: "인스타, 블로그, 네이버 키워드 광고 운영을 관리합니다.",
     icon: Megaphone,
   },
 ];
@@ -47,16 +47,16 @@ export const MANAGEMENT_SERVICES = [
   {
     title: "콘텐츠 업로드",
     icon: FileText,
-    items: ["블로그 업로드", "인스타 업로드", "릴스 업로드"],
+    items: ["블로그 업로드", "인스타 업로드", "스레드 업로드"],
   },
   {
     title: "키워드 광고",
     icon: Hash,
-    items: ["네이버 키워드 업로드", "플레이스 키워드 업로드"],
+    items: ["네이버 키워드 업로드", " 당근 플레이스 키워드 업로드"],
   },
   {
     title: "검색 상단등록",
     icon: TrendingUp,
-    items: ["네이버 서치어드바이저 등록", "구글 콘솔 등록", "사이트맵 등록"],
+    items: ["네이버 서치어드바이저 등록", "구글 콘솔 상단등록", "사이트맵 등록"],
   },
 ];

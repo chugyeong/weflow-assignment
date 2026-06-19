@@ -21,26 +21,28 @@ const SuccessCase = () => {
           }
         />
         <div className="mt-10 grid grid-cols-[300px_minmax(0,1fr)] gap-5 max-[900px]:grid-cols-1">
-          <div className="flex flex-col justify-between rounded-[20px] border border-we-blue-100/30 bg-[linear-gradient(160deg,rgba(59,130,246,0.95),rgba(8,17,34,0.92))] p-8 text-we-white shadow-we-blue max-[640px]:rounded-[14px] max-[640px]:p-4">
+          <div className="flex flex-col justify-center rounded-[20px] border border-we-blue-100/30 bg-[linear-gradient(160deg,rgba(59,130,246,0.95),rgba(8,17,34,0.92))] p-8 text-we-white shadow-we-blue max-[640px]:rounded-[14px] max-[640px]:p-4">
             <strong className="text-[clamp(24px,3vw,32px)] leading-[1.25] max-[640px]:text-[20px]">
-              업종별 문의 흐름을
+              다양한 업종의
               <br />
-              직접 확인하세요
+              성공 사례를 확인 하세요.
             </strong>
             <p className="my-6 text-[clamp(13px,1.2vw,15px)] leading-[1.8] text-we-gray-200 max-[640px]:my-3.5 max-[640px]:text-[13px] max-[640px]:leading-[1.55]">
-              PT, 필라테스, 보험, 법률 등 업종 특성에 맞춘 전환 구조를 사례로 보여드립니다.
+              어디서도 볼 수 없는 업종별 전환 최적화 사례를 직접 확인하세요.
             </p>
             <button
               className="flex h-[52px] w-max items-center gap-[5px] rounded-full border border-white/20 bg-white/10 px-6 font-extrabold text-white transition hover:-translate-y-0.5 hover:bg-white/16 max-[640px]:h-10 max-[640px]:px-3.5 max-[640px]:text-[13px]"
-              onClick={() => navigate("/cases")}>
-              둘러보기 <ArrowRight size={20} />
+              onClick={() => navigate("/diagnosis")}>
+              살펴보기 <ArrowRight size={20} />
             </button>
           </div>
           <div className="grid grid-cols-3 gap-5 max-[900px]:grid-cols-2 max-[560px]:grid-cols-1">
             {SUCCESS_CASES.map((item) => (
               <div
                 key={item.title}
-                onClick={() => navigate(`/cases/${item.key.replace(/^cases_/, "").replace(/^cases-/, "")}`)}
+                onClick={() =>
+                  navigate(`/cases/${item.key.replace(/^cases_/, "").replace(/^cases-/, "")}`)
+                }
                 className="group cursor-pointer overflow-hidden rounded-[18px] border border-white/10 bg-white/[0.045] text-we-gray-300 shadow-we-gray backdrop-blur-xl transition duration-500 hover:-translate-y-1.5 hover:border-we-blue-100/60 hover:text-we-gray-100">
                 <img
                   className="aspect-[2/1.3] w-full object-cover transition duration-500 group-hover:scale-[1.04]"

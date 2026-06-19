@@ -12,7 +12,7 @@ export const FOOTER_MENUS = [
   {
     title: "서비스",
     path: "/service",
-    items: ["홈페이지 제작 과정", "랜딩페이지 제작", "광고 운영 및 관리"],
+    items: ["홈페이지 제작 과정", "랜딩페이지 제작 과정", "광고 운영 및 관리 안내"],
   },
   {
     title: "플랜",

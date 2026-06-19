@@ -18,7 +18,9 @@ const Hero = () => {
             홈페이지 제작부터 광고 운영까지
           </p>
           <h1 className="max-w-[820px] break-keep text-[clamp(42px,6vw,40px)] font-black leading-[1.08] tracking-[0] text-we-white max-[640px]:text-[29px] max-[640px]:leading-[1.13]">
-            문의로 이어지는 홈페이지를 만듭니다
+            문의로 이어지는
+            <br />
+            홈페이지를 만듭니다
           </h1>
           <p className="mt-6 max-w-[680px] break-keep text-[clamp(16px,1.8vw,20px)] leading-[1.8] text-we-gray-300 max-[640px]:mt-3.5 max-[640px]:text-[14px] max-[640px]:leading-[1.58]">
             예쁜 화면에서 끝나지 않도록, 방문자가 상담으로 이어지는 구조와 광고 운영까지 함께
@@ -30,7 +32,7 @@ const Hero = () => {
               성공 사례 보기
             </Link>
             <Link className={secondaryButtonClass} to="/landing">
-              랜딩 페이지 보기
+              WEFLOW 랜딩 페이지
             </Link>
           </div>
         </div>

@@ -60,6 +60,16 @@ const DETAIL_BY_SLUG = {
   cleaning: ["서비스 범위 선택", "현장 견적 문의", "예약 가능일 안내"],
 };
 
+const hasBatchim = (word) => {
+  const lastChar = [...String(word).trim()].at(-1);
+  if (!lastChar) return false;
+
+  const code = lastChar.charCodeAt(0);
+  return code >= 0xac00 && code <= 0xd7a3 && (code - 0xac00) % 28 !== 0;
+};
+
+const eulReul = (word) => `${word}${hasBatchim(word) ? "을" : "를"}`;
+
 export const CASE_ITEMS = BASE_CASES.map(([title, slug, image, category], index) => {
   const points = DETAIL_BY_SLUG[slug];
   const leadPoint = points[0];
@@ -85,7 +95,7 @@ export const CASE_ITEMS = BASE_CASES.map(([title, slug, image, category], index)
       { label: "제작 기간", value: `${4 + (index % 4)}일` },
     ],
     detailCards: [
-      { label: "목표", value: `${leadPoint}을 첫 화면에서 바로 이해시키기` },
+      { label: "목표", value: `${eulReul(leadPoint)} 첫 화면에서 바로 이해시키기` },
       { label: "핵심 CTA", value: index % 2 === 0 ? "무료 상담 신청" : "예약 문의하기" },
       { label: "운영 메모", value: "관리자가 문구와 노출 상태를 쉽게 수정할 수 있도록 구성" },
     ],
