@@ -11,22 +11,24 @@ const Process = () => {
           desc="상담부터 사후관리까지, 6단계로 책임지고 진행합니다."
           align="center"
         />
-        <ul className="z-10 grid grid-cols-3 gap-5 max-[900px]:grid-cols-2 max-md:grid-cols-1">
+        <ul className="z-10 grid grid-cols-3 gap-5 max-[900px]:grid-cols-2 max-md:grid-cols-1 max-[640px]:gap-3.5">
           {PRODUCTION_PROCESS.map((item, idx) => {
             const Icon = item.icon;
 
             return (
               <li
                 key={item.title}
-                className="rounded-[10px] border border-we-gray-700 p-5 text-we-gray-300 transition hover:-translate-y-1.5 hover:border-we-blue-300 hover:text-we-gray-100">
-                <div className="flex h-10 w-10 items-center justify-center rounded-[10px] border border-we-gray-700">
-                  <Icon size={20} />
+                className="rounded-[10px] border border-we-gray-700 p-5 text-we-gray-300 transition hover:-translate-y-1.5 hover:border-we-blue-300 hover:text-we-gray-100 max-[640px]:p-3.5">
+                <div className="flex h-10 w-10 items-center justify-center rounded-[10px] border border-we-gray-700 max-[640px]:h-8 max-[640px]:w-8 max-[640px]:rounded-[8px]">
+                  <Icon className="h-5 w-5 max-[640px]:h-4 max-[640px]:w-4" />
                 </div>
-                <span className="mt-5 block text-xs font-bold text-we-blue-300">
+                <span className="mt-5 block text-xs font-bold text-we-blue-300 max-[640px]:mt-3 max-[640px]:text-[11px]">
                   {String(idx + 1).padStart(2, "0")}
                 </span>
-                <h3>{item.title}</h3>
-                <p className="mt-2.5 text-we-gray-500">{item.description}</p>
+                <h3 className="max-[640px]:text-base">{item.title}</h3>
+                <p className="mt-2.5 text-we-gray-500 max-[640px]:mt-1.5 max-[640px]:text-[13px] max-[640px]:leading-[1.55]">
+                  {item.description}
+                </p>
               </li>
             );
           })}

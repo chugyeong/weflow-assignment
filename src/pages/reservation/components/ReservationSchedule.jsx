@@ -1,4 +1,4 @@
-import { CommonField } from "../../../styles/common/components";
+import { Field, FieldLabel, FieldInput } from "../../../styles/common/components";
 
 const getTimeButtonClassName = (selected) =>
   [
@@ -20,13 +20,20 @@ const ReservationSchedule = ({
 }) => {
   return (
     <>
-      <CommonField>
-        <span>예약 날짜</span>
-        <input type="date" name="date" min={minDate} value={date} onChange={onChange} />
-      </CommonField>
+      <Field>
+        <FieldLabel>예약 날짜</FieldLabel>
+        <FieldInput
+          type="date"
+          name="date"
+          min={minDate}
+          value={date}
+          onChange={onChange}
+          className="cursor-pointer [&&::-webkit-calendar-picker-indicator]:invert [&&::-webkit-calendar-picker-indicator]:cursor-pointer"
+        />
+      </Field>
 
-      <CommonField>
-        <span>상담 시간</span>
+      <Field>
+        <FieldLabel>상담 시간</FieldLabel>
         <div className="grid grid-cols-5 gap-2.5 max-[640px]:grid-cols-3 max-[420px]:grid-cols-2">
           {timeSlots.map((time) => {
             const disabled = isPastTime(date, time);
@@ -47,17 +54,17 @@ const ReservationSchedule = ({
         <p className="mt-2.5 text-[clamp(12px,1.2vw,14px)] text-we-gray-500">
           9시부터 18시 30분까지 30분 간격으로 선택할 수 있습니다.
         </p>
-      </CommonField>
+      </Field>
 
-      <CommonField>
-        <span>원하시는 시간대</span>
+      <Field>
+        <FieldLabel>원하시는 시간대</FieldLabel>
         <input
           name="customTime"
           value={customTime}
           onChange={onChange}
           placeholder="예: 평일 오후 2시 이후, 이번 주 금요일 오전"
         />
-      </CommonField>
+      </Field>
     </>
   );
 };

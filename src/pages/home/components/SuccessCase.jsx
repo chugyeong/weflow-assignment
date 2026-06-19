@@ -21,17 +21,17 @@ const SuccessCase = () => {
           }
         />
         <div className="mt-10 grid grid-cols-[300px_minmax(0,1fr)] gap-5 max-[900px]:grid-cols-1">
-          <div className="flex flex-col justify-between rounded-[20px] border border-we-blue-100/30 bg-[linear-gradient(160deg,rgba(59,130,246,0.95),rgba(8,17,34,0.92))] p-8 text-we-white shadow-we-blue">
-            <strong className="text-[clamp(24px,3vw,32px)] leading-[1.25]">
+          <div className="flex flex-col justify-between rounded-[20px] border border-we-blue-100/30 bg-[linear-gradient(160deg,rgba(59,130,246,0.95),rgba(8,17,34,0.92))] p-8 text-we-white shadow-we-blue max-[640px]:rounded-[14px] max-[640px]:p-4">
+            <strong className="text-[clamp(24px,3vw,32px)] leading-[1.25] max-[640px]:text-[20px]">
               업종별 문의 흐름을
               <br />
               직접 확인하세요
             </strong>
-            <p className="my-6 text-[clamp(13px,1.2vw,15px)] leading-[1.8] text-we-gray-200">
+            <p className="my-6 text-[clamp(13px,1.2vw,15px)] leading-[1.8] text-we-gray-200 max-[640px]:my-3.5 max-[640px]:text-[13px] max-[640px]:leading-[1.55]">
               PT, 필라테스, 보험, 법률 등 업종 특성에 맞춘 전환 구조를 사례로 보여드립니다.
             </p>
             <button
-              className="flex h-[52px] w-max items-center gap-[5px] rounded-full border border-white/20 bg-white/10 px-6 font-extrabold text-white transition hover:-translate-y-0.5 hover:bg-white/16"
+              className="flex h-[52px] w-max items-center gap-[5px] rounded-full border border-white/20 bg-white/10 px-6 font-extrabold text-white transition hover:-translate-y-0.5 hover:bg-white/16 max-[640px]:h-10 max-[640px]:px-3.5 max-[640px]:text-[13px]"
               onClick={() => navigate("/cases")}>
               둘러보기 <ArrowRight size={20} />
             </button>

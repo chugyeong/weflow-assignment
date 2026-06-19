@@ -1,5 +1,5 @@
 import { ChevronDown } from "lucide-react";
-import { CommonField } from "../../styles/common/components";
+import { Field, FieldInput, FieldLabel } from "../../styles/common/components";
 
 const formatPhoneNumber = (value = "") => {
   const digits = value.replace(/\D/g, "").slice(0, 11);
@@ -32,9 +32,9 @@ export const TextField = ({
   maxLength = 80,
   ...props
 }) => (
-  <CommonField>
-    <span>{label}</span>
-    <input
+  <Field>
+    <FieldLabel>{label}</FieldLabel>
+    <FieldInput
       name={name}
       type={type}
       value={value}
@@ -43,7 +43,7 @@ export const TextField = ({
       maxLength={maxLength}
       {...props}
     />
-  </CommonField>
+  </Field>
 );
 
 export const NameField = ({ label, name = "name", value, onChange, placeholder, ...props }) => {
@@ -86,9 +86,13 @@ export const PhoneField = ({ label, name = "phone", value, onChange, placeholder
 };
 
 export const SelectField = ({ label, name, value, onChange, placeholder, options = [] }) => (
-  <CommonField className="relative">
-    <span>{label}</span>
-    <select name={name} value={value} onChange={onChange}>
+  <Field className="relative">
+    <FieldLabel>{label}</FieldLabel>
+    <select
+      name={name}
+      value={value}
+      onChange={onChange}
+      className="min-h-12 w-full cursor-pointer appearance-none rounded-[12px] border border-white/10 bg-we-black/70 px-3.5 pr-11 text-we-gray-100 transition focus:border-we-blue-300 focus:bg-we-black focus:shadow-[0_0_0_3px_rgba(59,130,246,0.22)] max-[640px]:min-h-10 max-[640px]:px-3 max-[640px]:pr-10 max-[640px]:text-[13px]">
       <option value="">{placeholder}</option>
       {options.map((option) => (
         <option key={option} value={option}>
@@ -96,22 +100,24 @@ export const SelectField = ({ label, name, value, onChange, placeholder, options
         </option>
       ))}
     </select>
+
     <ChevronDown
       className="pointer-events-none absolute bottom-[17px] right-3.5 text-we-gray-500"
       size={17}
     />
-  </CommonField>
+  </Field>
 );
 
 export const TextAreaField = ({ label, name, value, onChange, placeholder, maxLength = 500 }) => (
-  <CommonField>
-    <span>{label}</span>
+  <Field>
+    <FieldLabel>{label}</FieldLabel>
     <textarea
       name={name}
       value={value}
       onChange={onChange}
       placeholder={placeholder}
       maxLength={maxLength}
+      className="min-h-[120px] w-full resize-none rounded-[12px] border border-white/10 bg-we-black/70 p-3.5 leading-[1.6] text-we-gray-100 transition focus:border-we-blue-300 focus:bg-we-black focus:shadow-[0_0_0_3px_rgba(59,130,246,0.22)] placeholder:text-we-gray-500 [scrollbar-color:#334155_transparent] [scrollbar-width:thin] max-[640px]:min-h-[96px] max-[640px]:p-3 max-[640px]:text-[13px] [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-we-gray-700"
     />
-  </CommonField>
+  </Field>
 );
