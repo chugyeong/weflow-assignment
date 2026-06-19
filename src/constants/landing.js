@@ -40,6 +40,13 @@ export const LANDING_BENEFITS = [
   },
 ];
 
+export const LANDING_STORY_POINTS = [
+  "문의 증가 구조 설계",
+  "업종별 고객 흐름 분석",
+  "상담 버튼 위치 최적화",
+  "모바일 문의 동선 구성",
+];
+
 export const PRODUCTION_PLANS = [
   {
     name: "랜딩페이지",
@@ -58,7 +65,6 @@ export const PRODUCTION_PLANS = [
   {
     name: "프리미엄",
     tag: "MASTER PREMIUM",
-    featured: true,
     description: "랜딩과 홈페이지를 함께 설계하는 전환 중심 구성",
     price: { original: 2980000, sale: 1490000 },
     features: ["홈페이지 + 랜딩페이지", "1~2주 빠른 제작기간", "반응형 제작 (PC/모바일)", "프리미엄 디자인", "예약·문의 시스템", "SEO 최적화", "광고 전환 구조 설계"],
@@ -83,7 +89,6 @@ export const CARE_PLANS = [
   {
     name: "WEFLOW CARE",
     tag: "ALL-IN-ONE",
-    featured: true,
     description: "올인원 관리 플랜",
     price: { original: 678000, sale: 339000, unit: "월", suffix: "~" },
     features: ["유지보수 : 무제한", "블로그 : 월 4회 (주 1회)", "인스타 : 월 12회 (주 3회)", "스레드 : 월 12회 (주 3회)", "네이버 키워드/당근 플레이스 광고 세팅 무료", "월 성과 체크", "랜딩 개선", "광고관리", "SEO 최적화"],
@@ -115,8 +120,6 @@ export const SERVICE_PROCESS = [
   { title: "SEO 최적화", description: "검색 노출을 위한 기본 메타, 사이트맵, 검색 등록을 준비합니다.", icon: Search },
   { title: "운영 · 사후관리", description: "광고와 운영 데이터를 보며 수정, 유지보수, 개선을 이어갑니다.", icon: Settings },
 ];
-
-export const DIAGNOSIS_CHECKS = ["문의 구조 진단", "디자인 평가", "검색 노출 분석", "문의 개선 제안"];
 
 export const LANDING_REVIEWS = [
   { author: "OO PT 대표", content: "문의 버튼 위치를 바꾸고 상담 문의가 확실히 늘었습니다." },
