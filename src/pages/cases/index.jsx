@@ -37,11 +37,11 @@ const Cases = () => {
                 loading={idx < 4 ? "eager" : "lazy"}
                 decoding="async"
               />
-              <div className="p-5">
-                <strong className="block break-keep text-[clamp(16px,1.8vw,18px)] text-we-white">
+              <div className="p-5 max-[640px]:p-3.5">
+                <strong className="block break-keep text-[clamp(16px,1.8vw,18px)] text-we-white max-[640px]:text-[15px]">
                   {item.title}
                 </strong>
-                <button className="mt-2.5 flex items-center gap-[5px] text-[clamp(12px,1.2vw,14px)] text-we-blue-300">
+                <button className="mt-2.5 flex items-center gap-[5px] text-[clamp(12px,1.2vw,14px)] text-we-blue-300 max-[640px]:mt-1.5 max-[640px]:text-xs max-[640px]:[&_svg]:h-3 max-[640px]:[&_svg]:w-3">
                   자세히 보기
                   <ArrowRight size={15} />
                 </button>
@@ -50,7 +50,7 @@ const Cases = () => {
           ))}
         </div>
 
-        <div className="mt-[100px] [&_a]:mx-auto [&_a]:max-w-[300px]">
+        <div className="mt-[100px] max-[640px]:mt-10 [&_a]:mx-auto [&_a]:max-w-[300px] max-[640px]:[&_a]:max-w-[220px]">
           <LinkButton label="무료진단 받기" to="/diagnosis" icon={<ArrowRight size={15} />} />
         </div>
       </Inner>

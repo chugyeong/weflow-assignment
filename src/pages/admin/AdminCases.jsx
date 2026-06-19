@@ -1,4 +1,4 @@
-import { RotateCcw, Save, Search } from "lucide-react";
+import { Save, Search } from "lucide-react";
 import { useMemo, useState } from "react";
 import { toast } from "sonner";
 import { TextAreaField, TextField } from "../../components/common/FormControls";
@@ -192,7 +192,6 @@ const AdminCases = () => {
   const cases = useCaseStore((state) => state.cases);
   const updateCase = useCaseStore((state) => state.updateCase);
   const toggleCaseVisibility = useCaseStore((state) => state.toggleCaseVisibility);
-  const resetCases = useCaseStore((state) => state.resetCases);
   const [activeId, setActiveId] = useState(cases[0]?.id || "");
   const [query, setQuery] = useState("");
 
@@ -205,11 +204,6 @@ const AdminCases = () => {
   }, [cases, query]);
 
   const activeCase = cases.find((item) => item.id === activeId) || cases[0];
-
-  const handleReset = () => {
-    resetCases();
-    toast.success("성공사례 데이터를 기본값으로 복원했습니다.");
-  };
 
   if (!activeCase) {
     return <div className="rounded-[14px] border border-white/10 p-8">관리할 사례가 없습니다.</div>;
@@ -230,11 +224,11 @@ const AdminCases = () => {
       </div>
 
       <div className="grid grid-cols-[340px_minmax(0,1fr)] gap-5 max-[980px]:grid-cols-1">
-        <aside className="rounded-[14px] border border-white/10 bg-we-black/80 p-4 shadow-we-black">
-          <label className="mb-4 flex min-h-11 items-center gap-2 rounded-[10px] border border-white/10 bg-white/[0.04] px-3 text-we-gray-300">
+        <aside className="rounded-[14px] border border-white/10 bg-we-black/80 p-4 shadow-we-black max-[640px]:p-3">
+          <label className="mb-4 flex min-h-11 items-center gap-2 rounded-[10px] border border-white/10 bg-white/[0.04] px-3 text-we-gray-300 max-[640px]:mb-3 max-[640px]:min-h-8 max-[640px]:px-2">
             <Search size={17} />
             <input
-              className="min-w-0 flex-1 bg-transparent text-sm text-we-gray-100 placeholder:text-we-gray-500"
+              className="min-w-0 flex-1 bg-transparent text-sm text-we-gray-100 placeholder:text-we-gray-500 max-[640px]:text-[11px]"
               value={query}
               onChange={(event) => setQuery(event.target.value)}
               placeholder="사례 검색"
@@ -246,22 +240,22 @@ const AdminCases = () => {
               <button
                 key={item.id}
                 type="button"
-                className={`rounded-[10px] border p-3 text-left transition ${
+                className={`rounded-[10px] border p-3 text-left transition max-[640px]:p-2.5 ${
                   activeCase.id === item.id
                     ? "border-we-blue-300 bg-we-blue-300/12"
                     : "border-white/10 bg-white/[0.03] hover:border-we-blue-300/60"
                 }`}
                 onClick={() => setActiveId(item.id)}>
                 <div className="flex items-center justify-between gap-3">
-                  <strong className="break-keep text-we-white">{item.title}</strong>
+                  <strong className="break-keep text-we-white max-[640px]:text-[13px]">{item.title}</strong>
                   <span
-                    className={`shrink-0 rounded-full px-2 py-1 text-xs font-extrabold ${
+                    className={`shrink-0 rounded-full px-2 py-1 text-xs font-extrabold max-[640px]:px-1.5 max-[640px]:py-0.5 max-[640px]:text-[10px] ${
                       item.visible ? "bg-we-blue-500 text-white" : "bg-we-gray-700 text-we-gray-300"
                     }`}>
                     {item.visible ? "노출" : "숨김"}
                   </span>
                 </div>
-                <p className="mt-1 text-sm text-we-gray-500">/{item.slug}</p>
+                <p className="mt-1 text-sm text-we-gray-500 max-[640px]:text-[11px]">/{item.slug}</p>
               </button>
             ))}
           </div>

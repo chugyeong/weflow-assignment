@@ -18,7 +18,7 @@ const titleClass =
   "mb-6 flex items-center justify-between gap-4 max-[760px]:flex-col max-[760px]:items-start max-[640px]:mb-5";
 const actionsClass = "flex flex-wrap items-center gap-2 max-[640px]:gap-1.5";
 const buttonClass =
-  "inline-flex min-h-10 min-w-[96px] items-center justify-center gap-1.5 rounded-[9px] border border-white/10 bg-white/[0.04] px-3.5 text-sm font-extrabold text-we-gray-100 no-underline transition hover:-translate-y-0.5 hover:border-we-blue-300/70 hover:bg-white/[0.07] disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:translate-y-0 max-[640px]:min-h-9 max-[640px]:min-w-[84px] max-[640px]:px-2.5 max-[640px]:text-xs max-[640px]:[&_svg]:h-3.5 max-[640px]:[&_svg]:w-3.5";
+  "inline-flex min-h-10 min-w-[96px] items-center justify-center gap-1.5 rounded-[9px] border border-white/10 bg-white/[0.04] px-3.5 text-sm font-extrabold text-we-gray-100 no-underline transition hover:-translate-y-0.5 hover:border-we-blue-300/70 hover:bg-white/[0.07] disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:translate-y-0 max-[640px]:min-h-7 max-[640px]:min-w-[68px] max-[640px]:gap-1 max-[640px]:rounded-[7px] max-[640px]:px-1.5 max-[640px]:text-[10px] max-[640px]:[&_svg]:h-2.5 max-[640px]:[&_svg]:w-2.5";
 const primaryButtonClass = `${buttonClass} border-we-blue-300/50 bg-[linear-gradient(135deg,#58e6ff,#3b82f6)] text-white shadow-we-blue`;
 const panelClass =
   "mb-6 rounded-[14px] border border-white/10 bg-white/[0.045] p-5 shadow-we-black backdrop-blur-xl max-[640px]:mb-4 max-[640px]:p-3.5";
@@ -144,7 +144,7 @@ const AdminRequests = () => {
         <div className="mb-[18px] flex flex-wrap items-center justify-between gap-3 rounded-[12px] border border-white/10 bg-we-black/35 p-3 max-[640px]:mb-3.5 max-[640px]:gap-2 max-[640px]:rounded-[10px] max-[640px]:p-2.5">
           <span className="text-sm font-extrabold text-we-gray-400 max-[640px]:text-xs">상태 필터</span>
           <select
-            className="h-10 min-w-[150px] rounded-[10px] border border-white/10 bg-we-black/80 px-3 text-sm font-extrabold text-we-gray-100 outline-none transition focus:border-we-blue-300 focus:shadow-[0_0_0_3px_rgba(59,130,246,0.18)] max-[640px]:h-9 max-[640px]:min-w-[132px] max-[640px]:rounded-[8px] max-[640px]:px-2.5 max-[640px]:text-xs"
+            className="h-10 min-w-[150px] rounded-[10px] border border-white/10 bg-we-black/80 px-3 text-sm font-extrabold text-we-gray-100 outline-none transition focus:border-we-blue-300 focus:shadow-[0_0_0_3px_rgba(59,130,246,0.18)] max-[640px]:h-8 max-[640px]:min-w-[116px] max-[640px]:rounded-[7px] max-[640px]:px-2 max-[640px]:text-[11px]"
             value={activeStatus}
             onChange={(event) => setActiveStatus(event.target.value)}>
             {statusFilters.map((status) => (

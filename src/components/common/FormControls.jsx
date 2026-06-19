@@ -92,7 +92,7 @@ export const SelectField = ({ label, name, value, onChange, placeholder, options
       name={name}
       value={value}
       onChange={onChange}
-      className="min-h-12 w-full cursor-pointer appearance-none rounded-[12px] border border-white/10 bg-we-black/70 px-3.5 pr-11 text-we-gray-100 transition focus:border-we-blue-300 focus:bg-we-black focus:shadow-[0_0_0_3px_rgba(59,130,246,0.22)] max-[640px]:min-h-10 max-[640px]:px-3 max-[640px]:pr-10 max-[640px]:text-[13px]">
+      className="min-h-12 w-full cursor-pointer appearance-none rounded-[12px] border border-white/10 bg-we-black/70 px-3.5 pr-11 text-we-gray-100 transition focus:border-we-blue-300 focus:bg-we-black focus:shadow-[0_0_0_3px_rgba(59,130,246,0.22)] max-[640px]:min-h-9 max-[640px]:px-2.5 max-[640px]:pr-9 max-[640px]:!text-[13px]">
       <option value="">{placeholder}</option>
       {options.map((option) => (
         <option key={option} value={option}>
@@ -117,7 +117,7 @@ export const TextAreaField = ({ label, name, value, onChange, placeholder, maxLe
       onChange={onChange}
       placeholder={placeholder}
       maxLength={maxLength}
-      className="min-h-[120px] w-full resize-none rounded-[12px] border border-white/10 bg-we-black/70 p-3.5 leading-[1.6] text-we-gray-100 transition focus:border-we-blue-300 focus:bg-we-black focus:shadow-[0_0_0_3px_rgba(59,130,246,0.22)] placeholder:text-we-gray-500 [scrollbar-color:#334155_transparent] [scrollbar-width:thin] max-[640px]:min-h-[96px] max-[640px]:p-3 max-[640px]:text-[13px] [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-we-gray-700"
+      className="min-h-[120px] w-full resize-none rounded-[12px] border border-white/10 bg-we-black/70 p-3.5 leading-[1.6] text-we-gray-100 transition focus:border-we-blue-300 focus:bg-we-black focus:shadow-[0_0_0_3px_rgba(59,130,246,0.22)] placeholder:text-we-gray-500 [scrollbar-color:#334155_transparent] [scrollbar-width:thin] max-[640px]:min-h-[88px] max-[640px]:p-2.5 max-[640px]:!text-[13px] max-[640px]:leading-[1.45] [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-we-gray-700"
     />
   </Field>
 );
